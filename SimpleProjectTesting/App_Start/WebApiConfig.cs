@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Reflection;
-using System.Web.Http;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.WebApi;
 using SqlServer.Context;
 using SqlServer.Interfaces;
 using SqlServer.Repositories;
+using System.Reflection;
+using System.Web.Http;
 
 namespace SimpleProjectTesting
 {
@@ -32,7 +28,10 @@ namespace SimpleProjectTesting
 
             var simpleContext = new SimpleContext();
             builder.RegisterInstance(simpleContext).As<SimpleContext>().SingleInstance();
+
             builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<OrderRepository>().As<IOrderRepository>().InstancePerLifetimeScope();
+
             var container = builder.Build();
 
             using (var scope = container.BeginLifetimeScope())

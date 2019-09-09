@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using SqlServer.Entities;
+﻿using SqlServer.Entities;
 using SqlServer.Interfaces;
+using System;
+using System.Linq;
+using System.Web.Http;
 
 namespace SimpleProjectTesting.Controllers
 {
@@ -34,6 +31,27 @@ namespace SimpleProjectTesting.Controllers
             _productRepository.Add(command);
             _productRepository.SaveChanges();
             return Ok(command);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put([FromBody] Product command)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (command.Orders != null && command.Orders.Any())
+            {
+                return BadRequest("You can't change orders");
+            }
+
+            if (_productRepository.GetById(command.Id) == null)
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
     }
 }
