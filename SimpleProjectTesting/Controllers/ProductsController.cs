@@ -18,6 +18,19 @@ namespace SimpleProjectTesting.Controllers
         [HttpGet]
         public IHttpActionResult GetAll() => Ok(_productRepository.GetAll());
 
+        [Route("{id}")]
+        [HttpGet]
+        public IHttpActionResult Get(int id)
+        {
+            var entity = _productRepository.GetById(id);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
         [HttpPost]
         public IHttpActionResult Post([FromBody] Product command)
         {
@@ -25,8 +38,6 @@ namespace SimpleProjectTesting.Controllers
             {
                 return BadRequest();
             }
-
-            command.ProductionDate = DateTime.Now;
 
             _productRepository.Add(command);
             _productRepository.SaveChanges();
@@ -51,6 +62,22 @@ namespace SimpleProjectTesting.Controllers
                 return NotFound();
             }
 
+            _productRepository.Update(command);
+            _productRepository.SaveChanges();
+            return Ok(command);
+        }
+
+        [Route("{id}")]
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            if (_productRepository.GetById(id) == null)
+            {
+                return NotFound();
+            }
+
+            _productRepository.Delete(id);
+            _productRepository.SaveChanges();
             return Ok();
         }
     }

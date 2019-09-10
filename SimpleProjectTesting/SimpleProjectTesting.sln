@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleProjectTesting", "Sim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServer", "..\SqlServer\SqlServer.csproj", "{9B9D2542-6ED3-4DC2-AF6E-B571C66AA258}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowTests", "..\SpecFlowTests\SpecFlowTests.csproj", "{4C489864-9D0D-42B3-9634-F327D25549AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9B9D2542-6ED3-4DC2-AF6E-B571C66AA258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B9D2542-6ED3-4DC2-AF6E-B571C66AA258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B9D2542-6ED3-4DC2-AF6E-B571C66AA258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C489864-9D0D-42B3-9634-F327D25549AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C489864-9D0D-42B3-9634-F327D25549AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C489864-9D0D-42B3-9634-F327D25549AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C489864-9D0D-42B3-9634-F327D25549AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,15 +9,13 @@ namespace SqlServer.Interfaces
 
         Product GetById(int id);
 
-        void Add(Product item);
+        IEnumerable<Product> GetByIds(IEnumerable<int> ids);
 
-        void AddRange(IEnumerable<Product> items);
+        void Add(Product item);
 
         void Update(Product item);
 
         void Delete(int id);
-
-        void DeleteRange(params int[] ids);
 
         void SaveChanges();
     }
