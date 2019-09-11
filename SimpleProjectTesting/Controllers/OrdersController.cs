@@ -7,12 +7,12 @@ using System.Web.Http;
 
 namespace SimpleProjectTesting.Controllers
 {
-    public class OrderController : ApiController
+    public class OrdersController : ApiController
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IProductRepository _productRepository;
 
-        public OrderController(IOrderRepository orderRepository, IProductRepository productRepository)
+        public OrdersController(IOrderRepository orderRepository, IProductRepository productRepository)
         {
             _orderRepository = orderRepository;
             _productRepository = productRepository;
@@ -54,7 +54,5 @@ namespace SimpleProjectTesting.Controllers
             _orderRepository.SaveChanges();
             return Ok(order);
         }
-
-
     }
 }

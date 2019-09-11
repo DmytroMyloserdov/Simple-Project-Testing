@@ -11,6 +11,11 @@ namespace SqlServer.Context
         {
         }
 
+        public SimpleContext(string connectionString)
+            : base(connectionString)
+        {
+        }
+
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
 
