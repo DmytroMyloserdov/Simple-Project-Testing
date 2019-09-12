@@ -14,7 +14,5 @@ namespace SpecFlowTests.Repository.Contexts
         public Product RequestedProduct { get; set; }
 
         public IEnumerable<Product> RequestedProducts { get; set; }
-
-        public Product UpdatedProduct { get; set; }
     }
 }
